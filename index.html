@@ -20,8 +20,12 @@ box-sizing:border-box;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#020617;
-color:white;
+
+/* Light Professional Gradient Background */
+
+background:linear-gradient(120deg,#e0f2ff,#f5f7ff,#e9faff);
+
+color:#0f172a;
 overflow-x:hidden;
 }
 
@@ -52,7 +56,7 @@ header h1{
 font-family:'Playfair Display',serif;
 font-size:52px;
 
-background:linear-gradient(90deg,#00eaff,#7a5cff);
+background:linear-gradient(90deg,#00bcd4,#5b7cfa);
 -webkit-background-clip:text;
 color:transparent;
 
@@ -61,7 +65,7 @@ color:transparent;
 header p{
 
 margin-top:15px;
-color:#cbd5e1;
+color:#334155;
 font-size:18px;
 
 }
@@ -76,7 +80,7 @@ gap:35px;
 
 padding:18px;
 
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.7);
 backdrop-filter:blur(12px);
 
 position:sticky;
@@ -87,14 +91,14 @@ top:0;
 nav a{
 
 text-decoration:none;
-color:#cbd5e1;
+color:#334155;
 font-weight:500;
 
 }
 
 nav a:hover{
 
-color:#00eaff;
+color:#00bcd4;
 
 }
 
@@ -112,15 +116,15 @@ padding:70px 25px;
 
 .card{
 
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(16px);
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(14px);
 
 border-radius:18px;
 
 padding:40px;
 margin-bottom:35px;
 
-box-shadow:0 20px 40px rgba(0,0,0,0.5);
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
 
 transition:0.35s;
 
@@ -129,7 +133,7 @@ transition:0.35s;
 .card:hover{
 
 transform:translateY(-10px);
-box-shadow:0 30px 70px rgba(0,0,0,0.7);
+box-shadow:0 30px 60px rgba(0,0,0,0.25);
 
 }
 
@@ -138,7 +142,7 @@ box-shadow:0 30px 70px rgba(0,0,0,0.7);
 h2{
 
 font-family:'Playfair Display',serif;
-color:#00eaff;
+color:#0ea5e9;
 margin-bottom:18px;
 
 }
@@ -151,7 +155,7 @@ padding-left:20px;
 
 li{
 margin:8px 0;
-color:#e2e8f0;
+color:#1e293b;
 }
 
 /* ---------- FOOTER ---------- */
@@ -160,7 +164,7 @@ footer{
 
 text-align:center;
 padding:30px;
-color:#94a3b8;
+color:#475569;
 
 }
 
@@ -321,7 +325,7 @@ if(node.y<0||node.y>canvas.height)node.vy*=-1;
 
 ctx.beginPath();
 ctx.arc(node.x,node.y,2,0,Math.PI*2);
-ctx.fillStyle="#00eaff";
+ctx.fillStyle="#00bcd4";
 ctx.fill();
 
 });
@@ -340,7 +344,7 @@ if(dist<120){
 ctx.beginPath();
 ctx.moveTo(nodes[i].x,nodes[i].y);
 ctx.lineTo(nodes[j].x,nodes[j].y);
-ctx.strokeStyle="rgba(0,234,255,0.15)";
+ctx.strokeStyle="rgba(0,150,200,0.2)";
 ctx.stroke();
 
 }
