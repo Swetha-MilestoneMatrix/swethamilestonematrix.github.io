@@ -4,18 +4,51 @@
 <title>Swetha R | Network Consultant</title>
 
 <style>
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family: Arial;
 margin:0;
 background:#f4f6f8;
+position:relative;
 }
 
+/* NETWORK TOPOLOGY BACKGROUND */
+
+.network-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+background: radial-gradient(circle at 20% 20%, #1a73e8 2px, transparent 2px),
+            radial-gradient(circle at 80% 40%, #1a73e8 2px, transparent 2px),
+            radial-gradient(circle at 40% 70%, #1a73e8 2px, transparent 2px),
+            radial-gradient(circle at 70% 80%, #1a73e8 2px, transparent 2px);
+background-size:200px 200px;
+animation: networkMove 20s linear infinite;
+opacity:0.15;
+}
+
+@keyframes networkMove{
+0%{background-position:0 0, 50px 50px,100px 100px,150px 150px;}
+100%{background-position:200px 200px,250px 250px,300px 300px,350px 350px;}
+}
+
+/* HEADER */
+
 header{
-background:#1a73e8;
+background:linear-gradient(135deg,#1a73e8,#0f4db8);
 color:white;
 padding:40px;
 text-align:center;
 }
+
+/* NAVIGATION */
 
 nav{
 background:#333;
@@ -28,13 +61,37 @@ color:white;
 margin:15px;
 text-decoration:none;
 font-weight:bold;
+transition:0.3s;
 }
+
+nav a:hover{
+color:#1a73e8;
+background:white;
+padding:6px 10px;
+border-radius:5px;
+}
+
+/* SECTIONS */
 
 section{
 padding:40px;
 max-width:900px;
 margin:auto;
+animation:fadeIn 1s ease-in;
 }
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* CARDS */
 
 .card{
 background:white;
@@ -42,7 +99,27 @@ padding:20px;
 margin:20px 0;
 border-radius:10px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* CONTACT LINKS */
+
+#contact a{
+color:#1a73e8;
+font-weight:bold;
+text-decoration:none;
+}
+
+#contact a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER */
 
 footer{
 text-align:center;
@@ -50,10 +127,13 @@ padding:20px;
 background:#222;
 color:white;
 }
+
 </style>
 </head>
 
 <body>
+
+<div class="network-bg"></div>
 
 <header>
 <h1>Swetha R</h1>
@@ -85,36 +165,30 @@ successful implementation and migration projects.
 <div class="card">
 <h2><b>CAREER JOURNEY</b></h2>
 
-<p><b> NETWORK CONSULTANT </b></p>
-<p> Hewlett-Packard Enterprise (Payroll: NetConnect Global)</p>
-<p> 2023 – present </p>
+<p><b>NETWORK CONSULTANT</b></p>
+<p>Hewlett-Packard Enterprise (Payroll: NetConnect Global)</p>
+<p>2023 – present</p>
 <ul>
-<li>Led enterprise WLAN/LAN design and migration activities, 
-including Ekahau predictive surveys, HLD/LLD creation, and 
-site‑specific campus network planning.</li>
-<li>Coordinated directly with customers for site planning, 
-requirements gathering, and material readiness to ensure 
-smooth deployment.</li>
-<li>Supported implementation by validating campus network via 
-Aruba Central and configuring Aruba AOS‑CX switches, WLCs, 
-and APs.</li>
+<li>Led enterprise WLAN/LAN design and migration activities including Ekahau predictive surveys, HLD/LLD creation and campus network planning.</li>
+<li>Coordinated directly with customers for site planning, requirements gathering and material readiness.</li>
+<li>Validated campus network deployments through Aruba Central and configured Aruba AOS-CX switches, WLCs and APs.</li>
 </ul>
 
-<p><b> SW/APP/CLOUD TECH SUPPORT  </b></p>
-<p> ACCENTURE SOLUTION PVT LTD., </p>
-<p> 2021-2023 </p>
+<p><b>SW/APP/CLOUD TECH SUPPORT</b></p>
+<p>Accenture Solutions Pvt Ltd</p>
+<p>2021 – 2023</p>
 <ul>
-<li>Delivered L3 troubleshooting across global WAN/MAN infrastructure—covering Cisco, Juniper, FortiGate, Palo Alto, and Allot devices—ensuring rapid restoration during P1 , P2 incidents.</li>
-<li>Led major infrastructure changes including OS/firmware upgrades, bandwidth/speed modifications, SSL VPN updates, and RMA replacements while adhering to CAB and ServiceNow processes.</li>
-<li>Managed ~2,000 network devices, configured 100+ project routers with redundancy (HSRP/iBGP), and coordinated with vendors/TAC to resolve complex outages within SLA.</li>
+<li>Delivered L3 troubleshooting across global WAN/MAN infrastructure covering Cisco, Juniper, FortiGate, Palo Alto and Allot devices.</li>
+<li>Led infrastructure upgrades including OS firmware upgrades, VPN updates and device replacements.</li>
+<li>Managed ~2000 network devices and configured project routers with redundancy using HSRP and iBGP.</li>
 </ul>
 
-<p><b> SOFTWARE ENGINEER </b></p>
-<p> TECH MAHINDRA PVT LTD., </p>
-<p> 2018-2021 </p>
+<p><b>SOFTWARE ENGINEER</b></p>
+<p>Tech Mahindra Pvt Ltd</p>
+<p>2018 – 2021</p>
 <ul>
-<li>Delivered cost effective network solutions by coordinating with LECs, provisioning WAN services (1FL, ADSL), and managing high severity incidents, escalations, and root cause analysis.</li>
-<li>Ensured timely, high quality service delivery through close collaboration with vendor managers, carrier teams, and customer implementation groups.</li>
+<li>Delivered cost effective WAN solutions including 1FL and ADSL provisioning.</li>
+<li>Handled major incidents, escalations and root cause analysis.</li>
 </ul>
 
 </div>
@@ -122,39 +196,39 @@ and APs.</li>
 
 <section id="skills">
 <div class="card">
+
 <h2><b>TECHNICAL SKILLS</b></h2>
 <ul>
-<li>CISCO, Aruba, Juniper Networking</li>
-<li>Azure and AWS console management</li>
+<li>Cisco, Aruba, Juniper Networking</li>
+<li>Azure and AWS Console Management</li>
 <li>Palo Alto & Fortinet Firewall</li>
 </ul>
 
 <h2><b>TOOLS EXPERTISE</b></h2>
 <ul>
-<li>Ekahau AI Pro and IRIS for Design and BOM</li>
-<li>Aruba Central and ClearPass for Implementation</li>
-<li>NetFlow and NetXplorer for monitoring</li>
-<li>MS Visio for LLD and HLD</li>
+<li>Ekahau AI Pro & IRIS</li>
+<li>Aruba Central & ClearPass</li>
+<li>NetFlow & NetXplorer</li>
+<li>MS Visio (HLD / LLD Design)</li>
 </ul>
-  
+
 </div>
 </section>
 
 <section id="projects">
 <div class="card">
-<h2><b></b>PROJECTS</b></h2>
+<h2><b>PROJECTS</b></h2>
 
-<p><b>Nestle Enterprise Factory project</b></p>
+<p><b>Nestlé Enterprise Factory Project</b></p>
 <ul>
-<li>Contributed to the end-to-end implementation of the Nestlé Enterprise Factory network infrastructure, covering planning, design, and deployment phases.</li>
-<li>Worked on LAN and WLAN network design and implementation to support enterprise-level factory operations.</li>
-<li>Participated in network planning activities, including requirement analysis, capacity planning, and architecture discussions.</li>
-<li>Assisted in the deployment and configuration of LAN infrastructure, including switches, VLANs, and network segmentation for optimized performance.</li>
-<li>Supported WLAN deployment, including access point planning, configuration, and ensuring seamless wireless coverage across the facility.</li>
-<li>Performed network validation and testing during deployment to ensure stability, connectivity, and performance.</li>
-<li>Troubleshot and resolved LAN/WLAN connectivity issues, ensuring minimal disruption to business operations.</li>
-<li>Collaborated with cross-functional teams during implementation to ensure smooth network rollout and integration with enterprise systems.</li>
-
+<li>Contributed to end-to-end implementation of enterprise factory network infrastructure.</li>
+<li>Worked on LAN and WLAN architecture design and deployment.</li>
+<li>Participated in planning, capacity analysis and network architecture discussions.</li>
+<li>Configured switching infrastructure including VLAN segmentation.</li>
+<li>Supported WLAN deployment and access point planning.</li>
+<li>Performed validation testing for performance and connectivity.</li>
+<li>Troubleshot LAN/WLAN issues ensuring minimal disruption.</li>
+<li>Collaborated with cross-functional teams for seamless rollout.</li>
 </ul>
 
 </div>
@@ -164,7 +238,7 @@ and APs.</li>
 <div class="card">
 <h2><b>CONTACT</b></h2>
 <p>Email: swetharpsk@email.com</p>
-<p>LinkedIn: https://www.linkedin.com/in/swetha-r-87ba2612a</p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/swetha-r-87ba2612a" target="_blank">View LinkedIn Profile</a></p>
 </div>
 </section>
 
