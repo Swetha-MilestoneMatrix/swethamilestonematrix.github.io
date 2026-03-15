@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Journey | Swetha R</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(120deg,#ffe6f0,#ffd6e7,#ffcce0);
+overflow-x:hidden;
+}
+
+/* Blog container */
+
+.blog-container{
+max-width:800px;
+margin:80px auto;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+position:relative;
+z-index:2;
+}
+
+h1{
+color:#d63384;
+margin-bottom:20px;
+}
+
+p{
+line-height:1.8;
+color:#444;
+}
+
+.back-link{
+text-decoration:none;
+color:#d63384;
+font-weight:bold;
+}
+
+/* Cherry blossom petals */
+
+.petal{
+position:fixed;
+top:-50px;
+width:15px;
+height:15px;
+background:#ffb6c1;
+border-radius:50% 50% 50% 0;
+opacity:0.8;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- petals -->
+
+<div class="petal" style="left:10%; animation-duration:10s;"></div>
+<div class="petal" style="left:20%; animation-duration:14s;"></div>
+<div class="petal" style="left:30%; animation-duration:12s;"></div>
+<div class="petal" style="left:45%; animation-duration:16s;"></div>
+<div class="petal" style="left:60%; animation-duration:11s;"></div>
+<div class="petal" style="left:75%; animation-duration:15s;"></div>
+<div class="petal" style="left:90%; animation-duration:13s;"></div>
+
+<!-- blog -->
+
+<div class="blog-container">
+
+<h1>My Journey in Networking</h1>
+
+<p>Hello, I am <b>Swetha R</b>, a passionate Network Consultant with a strong interest in enterprise networking and infrastructure technologies.</p>
+
+<p>My journey into networking began with curiosity about how systems across the world communicate seamlessly. Over time, this curiosity evolved into a career where I work with complex network environments and help organizations maintain reliable connectivity.</p>
+
+<p>Through continuous learning and hands-on experience, I have developed expertise in networking technologies and enjoy solving real-world infrastructure challenges.</p>
+
+<p>This website is a small space where I share my professional journey, insights from the networking world, and my learning experiences.</p>
+
+<p>I believe technology is constantly evolving, and staying curious is the key to growing along with it.</p>
+
+<br>
+
+<a class="back-link" href="index.html">← Back to Home</a>
+
+</div>
+
+</body>
+</html>
