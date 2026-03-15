@@ -15,16 +15,27 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-
-/* pastel gradient background */
-
 background:linear-gradient(120deg,#fdf2f8,#f0f9ff,#ecfeff);
-
 color:#334155;
 overflow-x:hidden;
 }
 
-/* network canvas */
+/* world map background */
+
+.world-map{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+opacity:0.15;
+z-index:-2;
+background-image:url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg");
+background-size:cover;
+background-position:center;
+}
+
+/* network animation */
 
 #network-bg{
 position:fixed;
@@ -43,14 +54,12 @@ font-size:42px;
 margin-top:60px;
 margin-bottom:40px;
 
-/* pastel professional gradient */
-
 background:linear-gradient(90deg,#ec4899,#6366f1,#0ea5e9);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-/* blog container */
+/* blog cards */
 
 .blog-container{
 display:grid;
@@ -61,19 +70,13 @@ margin:auto;
 padding:40px;
 }
 
-/* blog cards */
-
 .blog-card{
-background:rgba(255,255,255,0.7);
+background:rgba(255,255,255,0.75);
 padding:25px;
 border-radius:16px;
 text-decoration:none;
 color:#334155;
-
 border:1px solid rgba(0,0,0,0.05);
-
-backdrop-filter:blur(6px);
-
 transition:0.3s;
 }
 
@@ -92,6 +95,8 @@ margin-top:0;
 </head>
 
 <body>
+
+<div class="world-map"></div>
 
 <canvas id="network-bg"></canvas>
 
@@ -114,99 +119,104 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let nodes = [];
-let packets = [];
+/* Global node locations */
 
-/* create nodes */
-
-for(let i=0;i<35;i++){
-nodes.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height
-});
-}
-
-/* create packets */
-
-for(let i=0;i<15;i++){
-packets.push({
-from:Math.floor(Math.random()*nodes.length),
-to:Math.floor(Math.random()*nodes.length),
-progress:Math.random()
-});
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
+const nodes = [
+{x:200,y:200},   // North America
+{x:400,y:300},   // South America
+{x:700,y:200},   // Europe
+{x:900,y:350},   // Africa
+{x:1100,y:200},  // Asia
+{x:1300,y:320},  // Australia
+];
 
 /* connections */
 
-for(let i=0;i<nodes.length;i++){
+const routes = [
+[0,2],
+[2,4],
+[4,5],
+[0,1],
+[2,3],
+[3,4]
+];
 
-for(let j=i+1;j<nodes.length;j++){
+let packets=[];
 
-let dist=Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y);
+routes.forEach((r,i)=>{
+packets.push({route:i,progress:Math.random()});
+});
 
-if(dist<220){
+/* draw curved connection */
+
+function drawCurve(x1,y1,x2,y2){
+
+let cx=(x1+x2)/2;
+let cy=(y1+y2)/2-80;
 
 ctx.beginPath();
-ctx.moveTo(nodes[i].x,nodes[i].y);
-ctx.lineTo(nodes[j].x,nodes[j].y);
-
-/* pastel connection color */
-
-ctx.strokeStyle="rgba(99,102,241,0.15)";
+ctx.moveTo(x1,y1);
+ctx.quadraticCurveTo(cx,cy,x2,y2);
+ctx.strokeStyle="rgba(99,102,241,0.25)";
+ctx.lineWidth=2;
 ctx.stroke();
 
-}
+return {cx,cy};
 
 }
 
-}
+function animate(){
 
-/* nodes */
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+/* draw nodes */
 
 nodes.forEach(n=>{
 ctx.beginPath();
-ctx.arc(n.x,n.y,3,0,Math.PI*2);
+ctx.arc(n.x,n.y,4,0,Math.PI*2);
 ctx.fillStyle="#a5b4fc";
 ctx.fill();
 });
 
-/* packets */
+/* draw routes */
+
+routes.forEach(r=>{
+drawCurve(
+nodes[r[0]].x,
+nodes[r[0]].y,
+nodes[r[1]].x,
+nodes[r[1]].y
+);
+});
+
+/* animate packets */
 
 packets.forEach(p=>{
 
-let start=nodes[p.from];
-let end=nodes[p.to];
+let r=routes[p.route];
 
-p.progress+=0.008;
+let start=nodes[r[0]];
+let end=nodes[r[1]];
 
-if(p.progress>=1){
-p.from=Math.floor(Math.random()*nodes.length);
-p.to=Math.floor(Math.random()*nodes.length);
-p.progress=0;
-}
+p.progress+=0.006;
+
+if(p.progress>1)p.progress=0;
 
 let x=start.x+(end.x-start.x)*p.progress;
-let y=start.y+(end.y-start.y)*p.progress;
+let y=start.y+(end.y-start.y)*p.progress-80*Math.sin(Math.PI*p.progress);
 
 ctx.beginPath();
-ctx.arc(x,y,2,0,Math.PI*2);
-
-/* soft pastel packet */
-
+ctx.arc(x,y,3,0,Math.PI*2);
 ctx.fillStyle="#f472b6";
 ctx.fill();
 
 });
 
-requestAnimationFrame(draw);
+requestAnimationFrame(animate);
 
 }
 
-draw();
+animate();
 
 </script>
 
