@@ -1,95 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swetha R | Network Consultant</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-
-            /* Pastel gradient + Aruba 6405 image */
-            background: 
-                linear-gradient(
-                    rgba(255, 240, 245, 0.85),   /* pastel pink */
-                    rgba(224, 240, 255, 0.85)    /* pastel blue */
-                ),
-                url('https://cdn.cs.1worldsync.com/syndication/feeds/hp-ent/inline-content/35/1/B/1B7D9059DB24ADA10C68CAE31B0C0A22C0EBA05C_feature.jpg');
-
+            font-family: 'Inter', sans-serif;
+            color: #1f2d3d;
+            background:
+                linear-gradient(135deg, rgba(240,248,255,0.92), rgba(255,240,250,0.92)),
+                url("https://cdn.cs.1worldsync.com/syndication/feeds/hp-ent/inline-content/35/1/B/1B7D9059DB24ADA10C68CAE31B0C0A22C0EBA05C_feature.jpg");
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
-        .overlay {
-            background: rgba(0,0,0,0.45);
-            min-height: 100vh;
-            padding: 40px;
-        }
-
-        .container {
-            max-width: 900px;
+        .wrapper {
+            max-width: 1100px;
             margin: auto;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(4px);
-            padding: 30px;
-            border-radius: 12px;
-            color: #1e2a38;
+            padding: 50px 20px;
         }
 
-        h1, h2, h3 {
-            color: #005f73;
+        .card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.25s ease;
         }
 
-        .section {
-            margin-bottom: 35px;
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            font-size: 46px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 0;
+            color: #0077b6;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+            font-size: 20px;
         }
 
         .section-title {
             font-size: 26px;
-            border-bottom: 2px solid #005f73;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            font-weight: 600;
+            color: #004e89;
+            border-left: 4px solid #0077b6;
+            padding-left: 12px;
+            margin-bottom: 20px;
         }
 
         ul li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-size: 40px;
+            line-height: 1.7;
             margin-bottom: 8px;
         }
 
-        .header h3 {
-            color: #0a9396;
-            font-weight: 500;
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
-        a {
-            color: #0a9396;
+        @media (max-width: 900px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="container">
-            <div class="header">
-                <h1>Swetha R</h1>
-                <h3>Network Consultant</h3>
-            </div>
+    <div class="wrapper">
 
-            <div class="section">
-                <div class="section-title">Summary</div>
+        <!-- HEADER CARD -->
+        <div class="card" style="text-align:center">
+            <h1>Swetha R</h1>
+            <h2>Network Consultant</h2>
+        </div>
+
+            <div class="card">
+            <div class="section-title">Summary</div>
                 <p>
                     Networking professional with 8+ years of experience in designing, deploying,
                     and troubleshooting enterprise WLAN, LAN, and WAN environments.
@@ -99,7 +111,7 @@
 
             </div>
 
-            <div class="section">
+            <div class="card">
                 <div class="section-title">Professional Experience</div>
 
                 <h3>Network Consultant – Hewlett-Packard Enterprise (2023–Present)</h3>
@@ -127,7 +139,7 @@
                 </ul>
             </div>
 
-            <div class="section">
+           <div class="card">
                 <div class="section-title">Technical Skills</div>
                 <ul>
                     <li>Cisco, Aruba, Juniper Networking</li>
@@ -142,7 +154,7 @@
             </div>
 
 <!-- Achievements -->
-            <div class="section">
+            <div class="card">
                 <div class="section-title">Achievements</div>
                 <ul>
                     <li>Bravo Award – Tech Mahindra (2019)</li>
@@ -152,12 +164,12 @@
             </div>
 
 <!-- Education -->
-            <div class="section">
+            <div class="card">
                 <div class="section-title">Education</div>
                 <p>Bachelor’s Degree, Prince Shri Venkateshwara Padmavathy Engineering College, Anna University (2017) – 8.4 CGPA</p>
             </div>
 
-            <div class="section">
+           <div class="card">
                 <div class="section-title">Contact</div>
                 <p>📞 +91-8838999715</p>
                 <p>📧 <a href="mailto:swetharpsk@gmail.com">swetharpsk@gmail.com</a></p>
